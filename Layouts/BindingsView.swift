@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Bindings: View {
+struct BindingsView: View {
     
     @State private var pressCount:Int = 0
     @State private var myMoney:Double = 0.0
@@ -20,12 +20,19 @@ struct Bindings: View {
     @State private var myDate:Date = Date()
     @State private var stepperValue:Int = 5
     
+    @State private var mySlider:Float = 0.0
+    
+    
     func add(){
         pressCount += 1
     }
     
     var body: some View {
-        VStack(alignment: .center){
+        VStack(){
+            
+            
+            
+            
             
             // Button ------------------------------------
             Text("Press count: \(String(pressCount))")
@@ -35,7 +42,6 @@ struct Bindings: View {
             }
             .buttonStyle(.borderedProminent)
             
- 
             
             // TextField ---------------------------
             TextField("Placeholder", text: $myTextFieldVar)
@@ -54,7 +60,7 @@ struct Bindings: View {
             Divider()
                 .frame(width: .infinity, height: 40.0, alignment: .center)
                 .border(.red, width: 1.0)
-       
+            
             // Toggle --------------------
             HStack(alignment:.center){
                 Spacer()
@@ -81,18 +87,18 @@ struct Bindings: View {
             // Stepper
             Stepper("Stepper value: \(stepperValue)", value:$stepperValue, in:1...10)
             
-            Spacer()
-            
         }
-        .padding()
-
+    }
+     
+            
+            
+            
+        
         
     }
-
-}
     
-
-
-#Preview {
-    Bindings()
-}
+    
+    
+    #Preview {
+        BindingsView()
+    }
